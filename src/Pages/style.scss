@@ -1,0 +1,34 @@
+@import "../styles/main.scss";
+@import "../styles/variables";
+
+
+.vote-main{
+    width: 90%;
+
+    .headerPage{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1em;
+        padding-top: 10px;
+      
+        & button{
+          width: 39px;
+          height: 39px;
+          box-shadow: -3px 7px 6.5px rgba(0, 0, 0, 0.05);
+          border: none;
+          border-radius: 10px;
+          cursor: pointer;
+        }
+      }
+}
+.end-vote{
+    width: 90%;
+
+    .timer-vote{
+        @extend .flexBox;
+        & h6{
+            font-size: 12px;
+        }
+    }
+}
