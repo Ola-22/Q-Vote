@@ -1,12 +1,19 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import EndVote from "./Pages/EndVote";
 import axiosInstance from "./helpers/axios";
 import { useEffect, useState } from "react";
 import VoteMain from "./Pages/VoteMain";
+import EndVote from "./Pages/EndVote";
+import Modal from "./Components/Modal";
+import CountdownTimer from "./Components/Timer/CountdownTimer";
 
 function App() {
   const [questions, setQuestions] = useState();
+  const [showModal, setShowModal] = useState(false);
+
+  const openModal = () => {
+    setShowModal((prev) => !prev);
+  };
 
   useEffect(() => {
     axiosInstance
@@ -24,7 +31,12 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/" element={<VoteMain questions={questions} />} />
+          <Route
+            path="/vote-main/:slug"
+            element={<EndVote questions={questions} />}
+          />
         </Routes>
+        <Modal showModal={showModal} setShowModal={setShowModal} />
       </div>
     </BrowserRouter>
   );

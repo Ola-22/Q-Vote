@@ -11,8 +11,9 @@ export default function NewShared({ questions }) {
   return (
     <div>
       {NewQue?.map((qu) => (
-        <Link to={`/vote-main/${qu.slug} `} key={qu.id}>
+        <Link to={`/vote-main/${qu.slug}`} key={qu.id}>
           <QuestionCard
+            verifyUser
             question={qu.question}
             end_at={moment(qu.end_at).format("Do MMMM YYYY h a")}
             img="/images/Group.png"

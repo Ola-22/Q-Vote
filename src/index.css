@@ -9,6 +9,11 @@
   src: url("/public/fonts/NeoSansArabicLight.ttf");
 }
 
+@font-face {
+  font-family: 'DinText';
+  src: url("/public/fonts/din-next-lt-w23-regular.ttf");
+}
+
 .App{
   font-family: NeoSans, serif;
   min-height: 100vh;

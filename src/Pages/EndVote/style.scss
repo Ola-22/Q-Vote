@@ -1,0 +1,59 @@
+@import "../../styles/variables";
+@import "../../styles/main";
+
+.end-vote{
+    width: 90%;
+
+    .timer-vote{
+        @extend .flexBox;
+        & h6{
+            font-size: 12px;
+        }
+    }
+    .title-main{
+        color: #2f2f2f;
+        opacity: 0.4;
+        font-size: 14px;
+        margin-top: 16.5px;
+    }
+
+    .choices{
+        @extend .flexBox;
+        justify-content: space-between;
+        margin-top: 13px;
+    }
+    .share-container{
+        @extend .flexBox;
+        justify-content: space-between;
+        position: fixed;
+        bottom: 27px;
+        width: 90%;
+       
+        & button:first-of-type{
+            width: 268px;
+            height: 50px;
+            @extend .flexBox;
+            background-color: $mainColor;
+            border: none;
+            font-size: 18px;
+            border-radius: 10px;
+            font-family: DinText, serif;
+            cursor: pointer;
+            & h4{
+                color: $whiteColor;
+                font-size: 18px;
+                font-weight: 400;
+                margin-right: 11px;
+            }
+        }
+
+        & button:last-of-type{
+            width: 59px;
+            height: 50px;
+            border: 1px solid $mainColor;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.5s ease-in-out;
+        }
+    }
+}

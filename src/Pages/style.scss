@@ -6,8 +6,7 @@
     width: 90%;
 
     .headerPage{
-        display: flex;
-        align-items: center;
+        @extend .flexBox;
         justify-content: space-between;
         margin-bottom: 1em;
         padding-top: 10px;
@@ -21,14 +20,8 @@
           cursor: pointer;
         }
       }
-}
-.end-vote{
-    width: 90%;
 
-    .timer-vote{
-        @extend .flexBox;
-        & h6{
-            font-size: 12px;
-        }
-    }
+      .company-container{
+          display: none;
+      }
 }

@@ -14,6 +14,7 @@ export default function MostShared({ questions }) {
       {MostQue?.map((qu) => (
         <Link to={`/vote-main/${qu.slug}`} key={qu.id}>
           <QuestionCard
+            verifyUser
             question={qu.question}
             end_at={moment(qu.end_at).format("Do MMMM YYYY h a")}
             img="/images/Group.png"

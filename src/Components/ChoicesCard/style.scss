@@ -1,0 +1,33 @@
+@import "../../styles/variables";
+
+.choices-card{
+    width: 163px;
+    height: 183.5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: $whiteColor;
+    border-radius: 10px;
+    position: relative;
+
+   & img{
+       width: 153px;
+       height: 136.5px;
+       border-radius: 8px;
+   }
+
+   .name-content{
+        margin-top: 9px;
+        margin-bottom: 12px;
+   }
+
+   .exclamation{
+        width: 22px;
+        height: 22px;
+        position: absolute;
+        top: 9px;
+        left: 9px; 
+   }
+  
+}
