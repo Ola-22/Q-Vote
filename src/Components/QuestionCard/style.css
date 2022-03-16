@@ -62,7 +62,7 @@
 .question-container h4 {
   font-size: 16px;
   color: #000000;
-  margin-top: 5px;
+  margin-top: 9px;
 }
 
 .question-container .vote-number {
@@ -90,5 +90,16 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.question-container .company-container {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  margin-top: 22px;
+}
+
+.question-container .end-vote {
+  margin-top: 12px;
 }
 /*# sourceMappingURL=style.css.map */
