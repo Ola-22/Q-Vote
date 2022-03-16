@@ -1,0 +1,35 @@
+@import "../../styles/variables";
+@import "../../styles/main";
+
+.background{
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    @extend .flexBox;
+    justify-content: center;
+    top: 0;
+    
+    .modal-wrapper{
+        width: 90%;
+        height: 300px;
+        box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
+        background: #fff;
+        color: #000;
+        @extend .flexBox;
+        justify-content: center;
+        position: relative;
+        z-index: 10;
+        border-radius: 10px;
+        .modal-content{
+            @extend .flexBox;
+            flex-direction: column;
+            justify-content: center;
+            line-height: 1.8;
+            color: #141414;
+            font-weight: bold;  
+            transition: 1s ease-in-out;
+            width: 100%;
+        }
+    }
+}
