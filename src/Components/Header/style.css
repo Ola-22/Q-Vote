@@ -1,0 +1,35 @@
+.flexBox, .header, .header button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.header {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-top: 1.5em;
+  width: 100%;
+}
+
+.header button {
+  background-color: #11ACA1;
+  width: 139px;
+  height: 39px;
+  -webkit-box-shadow: -3px 7px 6.5px rgba(0, 0, 0, 0.05);
+          box-shadow: -3px 7px 6.5px rgba(0, 0, 0, 0.05);
+  border: none;
+  border-radius: 10px;
+  color: #ffffff;
+  font-size: 15px;
+  cursor: pointer;
+}
+/*# sourceMappingURL=style.css.map */

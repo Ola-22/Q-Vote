@@ -1,0 +1,58 @@
+@import "../../styles/variables";
+
+
+.skeleton{
+    background-color: #ddd;
+    border-radius: 4px;
+}
+
+.skeleton.text{
+    width: 100%;
+    height: 12px;
+    margin-bottom: 15px;
+}
+
+.skeleton.titlesk{
+    width: 50%;
+    height: 10px;
+    margin-bottom: 15px;
+}
+
+.skeleton.avatar{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+.skeleton.thumbnail{
+    width: 100px;
+    height: 100px;
+}
+
+.skeleton-wrapper{
+    margin: 20px auto;
+    padding: 10px 15px;
+    position: relative;
+}
+
+.shimmer-wrapper{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    animation: loading 2.5s infinite;
+}
+
+.shimmer{
+    width: 50%;
+    height: 100%;
+    background-color: $gWhiteColor;
+    transform: skewX(-20deg);
+    box-shadow: 0 0 30px 30px rgba(255, 255,255,0.05);
+}
+
+@keyframes loading{
+    0% {transform: translateX(-100%)}
+    50% {transform: translateX(-60%)}
+    100% {transform: translateX(100%)}
+}

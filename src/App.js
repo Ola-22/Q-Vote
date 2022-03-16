@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import EndVote from "./Pages/EndVote";
+import axiosInstance from "./helpers/axios";
+import { useEffect, useState } from "react";
+import VoteMain from "./Pages/VoteMain";
 
 function App() {
+  const [questions, setQuestions] = useState();
+
+  useEffect(() => {
+    axiosInstance
+      .post("/votes", { page_number: 1, page_size: 10 })
+      .then((res) => {
+        setQuestions(res.data.items.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<VoteMain questions={questions} />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
