@@ -1,0 +1,73 @@
+.flexBox, .end-vote .timer-vote, .end-vote .choices, .end-vote .share-container, .end-vote .share-container button:first-of-type {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.end-vote {
+  width: 90%;
+}
+
+.end-vote .timer-vote h6 {
+  font-size: 12px;
+}
+
+.end-vote .title-main {
+  color: #2f2f2f;
+  opacity: 0.4;
+  font-size: 14px;
+  margin-top: 16.5px;
+}
+
+.end-vote .choices {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 13px;
+}
+
+.end-vote .share-container {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: fixed;
+  bottom: 27px;
+  width: 90%;
+}
+
+.end-vote .share-container button:first-of-type {
+  width: 268px;
+  height: 50px;
+  background-color: #75153B;
+  border: none;
+  font-size: 18px;
+  border-radius: 10px;
+  font-family: DinText, serif;
+  cursor: pointer;
+}
+
+.end-vote .share-container button:first-of-type h4 {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 400;
+  margin-right: 11px;
+}
+
+.end-vote .share-container button:last-of-type {
+  width: 59px;
+  height: 50px;
+  border: 1px solid #75153B;
+  border-radius: 10px;
+  cursor: pointer;
+  -webkit-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+}
+/*# sourceMappingURL=style.css.map */
