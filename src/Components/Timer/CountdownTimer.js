@@ -37,7 +37,7 @@ export default function CountdownTimer({ date }) {
 
   useEffect(() => {
     startTimer();
-  }, []);
+  }, [startTimer]);
   return (
     <div className="count-timer">
       <span>{timerDays}</span>
