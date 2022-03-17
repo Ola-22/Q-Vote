@@ -1,3 +1,4 @@
+import CountdownTimer from "../Timer/CountdownTimer.js";
 import EndCard from "./EndCard.js";
 import "./style.css";
 
@@ -12,11 +13,16 @@ export default function QuestionCard({
   voteContent,
   endCard,
   verifyUser,
+  date,
+  countTimer,
 }) {
   return (
     <div>
       <div className="question-container" style={{ height: "121px" }}>
         {endCard && <EndCard end_at={end_at} />}
+
+        {countTimer && <CountdownTimer date={date} />}
+
         <h4>{question}</h4>
         <div className="company-container">
           <img src={companyImg} alt="" />

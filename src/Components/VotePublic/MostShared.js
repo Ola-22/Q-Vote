@@ -15,12 +15,14 @@ export default function MostShared({ questions }) {
         <Link to={`/vote-main/${qu.slug}`} key={qu.id}>
           <QuestionCard
             verifyUser
+            countTimer
             question={qu.question}
             end_at={moment(qu.end_at).format("Do MMMM YYYY h a")}
             img="/images/Group.png"
             numberTitle="عدد المصوتين"
             numberVote={qu.total_votes}
             voteContent="صوت"
+            date={qu.end_at}
           />
         </Link>
       ))}

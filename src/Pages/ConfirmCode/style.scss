@@ -1,0 +1,73 @@
+.confirm-code{
+    display: flex;
+    flex-direction:column;
+    width: 90%;
+  
+    .background .modal-wrapper{
+      height: 120px;
+    }
+   
+    .code-container{
+      display: flex;
+      flex-direction:column;
+      align-items: center;
+      position: fixed;
+      top: 30%;
+      width: 90%;
+  
+      .code-box{
+        display: flex;
+        justify-content: flex-start;
+        direction: ltr;
+        align-items: center;
+        margin-top: 1em;
+        .css-jxah1j{
+          height: 2em;
+          width: 2em;
+          border:1px solid #707070;
+          cursor: pointer;
+          background-color: white;
+          color: black;
+          line-height: 2em;
+        }
+        .ReactInputVerificationCode__container {
+          justify-content: space-around;
+        }
+      }
+   
+    & h2{
+      font-size: 18px;
+      color: #0447B7;
+      margin-bottom: 10px;
+    }
+    & p{
+      width: 330px;
+      text-align: center;
+    }
+  
+  
+    & button:first-of-type{
+      background-color: #ec4e5d;
+      color: white;
+      border-radius: 10px;
+      border: 1px solid #E2EDFF;
+      width: 12em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: auto;
+      width: 139px;
+      height: 39px;
+      font-size: 15px;
+      margin-top: 1em;
+      margin-bottom: 1em;
+      cursor: pointer;
+    }
+    .send-again{
+      border: none;
+      cursor: pointer;
+      color: #0447B7;
+      text-decoration: underline;
+    }
+    }
+  }

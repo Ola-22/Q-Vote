@@ -1,4 +1,4 @@
-.flexBox, .background, .background .modal-wrapper, .background .modal-wrapper .modal-content {
+.flexBox, .background, .background .modal-wrapper, .background .modal-wrapper .modal-content, .background .modal-wrapper .modal-content .input-phone .logo-qatar, .background .modal-wrapper .modal-content button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -21,6 +21,7 @@
       -ms-flex-pack: center;
           justify-content: center;
   top: 0;
+  right: 0;
 }
 
 .background .modal-wrapper {
@@ -52,5 +53,140 @@
   -webkit-transition: 1s ease-in-out;
   transition: 1s ease-in-out;
   width: 100%;
+}
+
+.background .modal-wrapper .modal-content form {
+  width: 90%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.background .modal-wrapper .modal-content .name-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.background .modal-wrapper .modal-content .phone-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 10px;
+}
+
+.background .modal-wrapper .modal-content label {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+
+.background .modal-wrapper .modal-content input[type=text] {
+  border: 1px solid #EBEBEB;
+  border-radius: 5px;
+  height: 2.3em;
+  font-size: 15px;
+  -webkit-padding-start: 1em;
+          padding-inline-start: 1em;
+  outline: none;
+}
+
+.background .modal-wrapper .modal-content .input-phone {
+  direction: ltr;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid #EBEBEB;
+  border-radius: 5px;
+  height: 2.3em;
+}
+
+.background .modal-wrapper .modal-content .input-phone input {
+  font-size: 15px;
+  border: none;
+  outline: none;
+  height: 100%;
+  font-family: NeoSans, serif;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.background .modal-wrapper .modal-content .input-phone .logo-qatar {
+  background-color: #ffffff;
+  border-radius: 5px;
+  width: 2.5em;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100%;
+}
+
+.background .modal-wrapper .modal-content .input-phone h6 {
+  font-size: 15px;
+  font-weight: 400;
+  -webkit-padding-start: 1em;
+          padding-inline-start: 1em;
+  height: 100%;
+  padding-top: 5px;
+}
+
+.background .modal-wrapper .modal-content button {
+  background-color: #11ACA1;
+  cursor: pointer;
+  width: 60%;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  font-size: 18px;
+  margin-top: 10px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: auto;
+  margin-top: 3%;
+}
+
+.background .modal-wrapper .close-btn {
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  width: 22px;
+  height: 32px;
+  padding: 0;
+  z-index: 10;
+}
+
+.background .error {
+  font-size: 10px;
+  color: red;
+  -ms-flex-item-align: self-start;
+      -ms-grid-row-align: self-start;
+      align-self: self-start;
+}
+
+.background .borderError {
+  border: 1px solid red !important;
+}
+
+.background .message-content {
+  text-align: center;
 }
 /*# sourceMappingURL=style.css.map */

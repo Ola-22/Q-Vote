@@ -11,7 +11,7 @@ export default function ChoicesCard({
   openModal,
 }) {
   return (
-    <div className="choices-card" onClick={onClick}>
+    <div className={className} onClick={onClick}>
       <img className="exclamation" src="/images/exclamation.png" alt="" />
       <img src={src} alt="" />
       <div className="name-content">

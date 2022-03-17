@@ -6,8 +6,17 @@
 
     .timer-vote{
         @extend .flexBox;
+        flex-direction: column;
         & h6{
             font-size: 12px;
+        }
+
+        .question-container{
+            background-color: inherit;
+            box-shadow: none;
+            width: 130px;
+            height: 30px !important;
+            margin-top: 2px;
         }
     }
     .title-main{
@@ -20,14 +29,14 @@
     .choices{
         @extend .flexBox;
         justify-content: space-between;
-        margin-top: 13px;
+        
     }
     .share-container{
         @extend .flexBox;
         justify-content: space-between;
-        position: fixed;
-        bottom: 27px;
-        width: 90%;
+        height: 50px;
+        margin-bottom: 27px;
+        margin-top: 24px;
        
         & button:first-of-type{
             width: 268px;
