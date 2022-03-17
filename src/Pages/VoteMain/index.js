@@ -1,8 +1,8 @@
 import { useState } from "react";
-import Tab from "../Components/Tabs/Tab";
-import TabNav from "../Components/Tabs/TabNav";
-import MostShared from "../Components/VotePublic/MostShared";
-import NewShared from "../Components/VotePublic/NewShared";
+import Tab from "../../Components/Tabs/Tab";
+import TabNav from "../../Components/Tabs/TabNav";
+import MostShared from "../../Components/VotePublic/MostShared";
+import NewShared from "../../Components/VotePublic/NewShared";
 import { Link, useNavigate } from "react-router-dom";
 import "./style.css";
 
