@@ -1,0 +1,18 @@
+.count-timer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  direction: ltr;
+  -ms-flex-item-align: center;
+      align-self: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.count-timer span {
+  margin-right: 4px;
+  font-size: 22px;
+  color: #11ACA1;
+}
+/*# sourceMappingURL=style.css.map */

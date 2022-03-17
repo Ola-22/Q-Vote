@@ -1,0 +1,102 @@
+.confirm-code {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 90%;
+}
+
+.confirm-code .background .modal-wrapper {
+  height: 120px;
+}
+
+.confirm-code .code-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: fixed;
+  top: 30%;
+  width: 90%;
+}
+
+.confirm-code .code-container .code-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  direction: ltr;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 1em;
+}
+
+.confirm-code .code-container .code-box .css-jxah1j {
+  height: 2em;
+  width: 2em;
+  border: 1px solid #707070;
+  cursor: pointer;
+  background-color: white;
+  color: black;
+  line-height: 2em;
+}
+
+.confirm-code .code-container .code-box .ReactInputVerificationCode__container {
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.confirm-code .code-container h2 {
+  font-size: 18px;
+  color: #0447B7;
+  margin-bottom: 10px;
+}
+
+.confirm-code .code-container p {
+  width: 330px;
+  text-align: center;
+}
+
+.confirm-code .code-container button:first-of-type {
+  background-color: #ec4e5d;
+  color: white;
+  border-radius: 10px;
+  border: 1px solid #E2EDFF;
+  width: 12em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: auto;
+  width: 139px;
+  height: 39px;
+  font-size: 15px;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  cursor: pointer;
+}
+
+.confirm-code .code-container .send-again {
+  border: none;
+  cursor: pointer;
+  color: #0447B7;
+  text-decoration: underline;
+}
+/*# sourceMappingURL=style.css.map */

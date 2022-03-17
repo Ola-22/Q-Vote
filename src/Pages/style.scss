@@ -24,4 +24,17 @@
       .company-container{
           display: none;
       }
+
+      .count-timer:after {
+        content: "";
+        width: 136px;
+        height: 25px;
+        background-color: #11ACA1;
+        opacity: .15;
+        position: absolute;
+        border-radius: 7px;
+    }
+    .count-timer{
+      z-index: 100;
+    }
 }

@@ -37,4 +37,18 @@
 .vote-main .company-container {
   display: none;
 }
+
+.vote-main .count-timer:after {
+  content: "";
+  width: 136px;
+  height: 25px;
+  background-color: #11ACA1;
+  opacity: .15;
+  position: absolute;
+  border-radius: 7px;
+}
+
+.vote-main .count-timer {
+  z-index: 100;
+}
 /*# sourceMappingURL=style.css.map */

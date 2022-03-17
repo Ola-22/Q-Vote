@@ -1,0 +1,13 @@
+@import "../../styles/variables";
+
+.count-timer{
+    display: flex;
+    direction: ltr;
+    align-self: center;
+    justify-content: center;
+    & span{
+        margin-right: 4px;
+        font-size: 22px;
+        color: $greenColor;
+    }
+}
