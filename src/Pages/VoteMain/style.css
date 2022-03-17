@@ -1,0 +1,54 @@
+.flexBox, .vote-main .headerPage {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.vote-main {
+  width: 90%;
+}
+
+.vote-main .headerPage {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 1em;
+  padding-top: 10px;
+}
+
+.vote-main .headerPage button {
+  width: 39px;
+  height: 39px;
+  -webkit-box-shadow: -3px 7px 6.5px rgba(0, 0, 0, 0.05);
+          box-shadow: -3px 7px 6.5px rgba(0, 0, 0, 0.05);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.vote-main .company-container {
+  display: none;
+}
+
+.vote-main .count-timer:after {
+  content: "";
+  width: 136px;
+  height: 25px;
+  background-color: #11ACA1;
+  opacity: .15;
+  position: absolute;
+  border-radius: 7px;
+}
+
+.vote-main .count-timer {
+  z-index: 100;
+}
+/*# sourceMappingURL=style.css.map */
