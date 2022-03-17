@@ -5,7 +5,7 @@ export default function CountdownTimer({ date }) {
   const [timerDays, setTimerDays] = useState();
   const [timerHours, setTimerHours] = useState();
   const [timerMinutes, setTimerMinutes] = useState();
-  const [timerSeconds, setTimerSeconds] = useState();
+  // const [timerSeconds, setTimerSeconds] = useState();
 
   let interval;
 
@@ -22,7 +22,7 @@ export default function CountdownTimer({ date }) {
         (distance % (24 * 60 * 60 * 1000)) / (1000 * 60 * 60)
       );
       const minutes = Math.floor((distance % (60 * 60 * 1000)) / (1000 * 60));
-      const seconds = Math.floor((distance % (60 * 1000)) / 1000);
+      // const seconds = Math.floor((distance % (60 * 1000)) / 1000);
 
       if (distance < 0) {
         clearInterval(interval.current);
@@ -30,14 +30,14 @@ export default function CountdownTimer({ date }) {
         setTimerDays(days);
         setTimerHours(hours);
         setTimerMinutes(minutes);
-        setTimerSeconds(seconds);
+        // setTimerSeconds(seconds);
       }
     });
   };
 
   useEffect(() => {
     startTimer();
-  });
+  }, []);
   return (
     <div className="count-timer">
       <span>{timerDays}</span>
@@ -53,5 +53,5 @@ CountdownTimer.defaultProps = {
   timerDays: 10,
   timerHours: 10,
   timerMinutes: 10,
-  timerSeconds: 10,
+  // timerSeconds: 10,
 };
