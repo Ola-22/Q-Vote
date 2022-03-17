@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 import VoteMain from "./Pages/VoteMain";
 import EndVote from "./Pages/EndVote";
 import Modal from "./Components/Modal";
-import CountdownTimer from "./Components/Timer/CountdownTimer";
 import ConfirmCode from "./Pages/ConfirmCode";
 
 function App() {
@@ -22,7 +21,6 @@ function App() {
   const [resendCode, setResendCode] = useState();
   const [codeInput, setCodeInput] = useState("");
   const [name, setName] = useState("");
-  const [date, setDate] = useState("");
 
   const [selected, setSelected] = useState(new Set());
 
