@@ -2,7 +2,7 @@ import Header from "../../Components/Header";
 import QuestionCard from "../../Components/QuestionCard";
 import "./style.css";
 import moment from "moment";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axiosInstance from "../../helpers/axios";
 import SkeletonArticle from "../../Components/Skeletons/SkeletonArticle";
