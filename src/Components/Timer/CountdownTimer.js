@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
+import "./style.css";
 
-export default function CountdownTimer() {
+export default function CountdownTimer({ date }) {
   const [timerDays, setTimerDays] = useState();
   const [timerHours, setTimerHours] = useState();
   const [timerMinutes, setTimerMinutes] = useState();
@@ -9,7 +10,7 @@ export default function CountdownTimer() {
   let interval;
 
   const startTimer = () => {
-    const countDownDate = new Date("May 30,2022 ").getTime();
+    const countDownDate = new Date(date).getTime();
 
     interval = setInterval(() => {
       const now = new Date().getTime();
@@ -38,15 +39,12 @@ export default function CountdownTimer() {
     startTimer();
   });
   return (
-    <div>
+    <div className="count-timer">
       <span>{timerDays}</span>
-      <span>Days</span>
+      <span>:</span>
       <span>{timerHours}</span>
-      <span>hours</span>
+      <span>:</span>
       <span>{timerMinutes}</span>
-      <span>minutes</span>
-      <span>{timerSeconds}</span>
-      <span>seconds</span>
     </div>
   );
 }
