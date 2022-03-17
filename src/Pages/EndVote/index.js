@@ -9,6 +9,8 @@ import SkeletonArticle from "../../Components/Skeletons/SkeletonArticle";
 import ChoicesCard from "../../Components/ChoicesCard";
 import { FaSpinner } from "react-icons/fa";
 import { MdClose } from "react-icons/md";
+import CardChoice from "./CardChoice";
+import ProgressBar from "../../Components/Progress";
 
 export default function EndVote({
   openModal,
@@ -67,7 +69,7 @@ export default function EndVote({
       <Header />
       <div className="timer-vote">
         <h6>متبقي لانتهاء التصويت</h6>
-        <QuestionCard countTimer date={results?.end_at} />
+        {results && <QuestionCard countTimer date={results?.end_at} />}
       </div>
       {results && (
         <div>
@@ -79,27 +81,44 @@ export default function EndVote({
             companyImg="/images/company.png"
           />
           <h5 className="title-main">المرشحين</h5>
+
+          {console.log(new Date(results?.end_at))}
+          {console.log(new Date())}
+
           <div className="choices">
-            {results.candidates.map((can) => (
-              <div key={can.id} onClick={() => setShowButton(true)}>
-                <ChoicesCard
+            {results.candidates.map((can) =>
+              new Date(results?.end_at) > new Date() ? (
+                <div key={can.id} onClick={() => setShowButton(true)}>
+                  <ChoicesCard
+                    src={can.photo}
+                    voteNumber={can.total_votes}
+                    RateVote={can.vote_precentage}
+                    name={can.name}
+                    onClick={() => {
+                      selectItems(can);
+                      setQuestionId(results.id);
+                      setMessage(false);
+                      !selected.has(can) && choice.push(can);
+                      selected.has(can) && choice.pop();
+                    }}
+                    className={
+                      selected.has(can) ? "choices-card active" : "choices-card"
+                    }
+                  />
+                </div>
+              ) : (
+                <CardChoice
                   src={can.photo}
-                  voteNumber={can.total_votes}
-                  RateVote={can.vote_precentage}
                   name={can.name}
-                  onClick={() => {
-                    selectItems(can);
-                    setQuestionId(results.id);
-                    setMessage(false);
-                    !selected.has(can) && choice.push(can);
-                    selected.has(can) && choice.pop();
-                  }}
-                  className={
-                    selected.has(can) ? "choices-card active" : "choices-card"
+                  progress={
+                    <ProgressBar
+                      colour="#80B3F5"
+                      percentage={can.vote_precentage}
+                    />
                   }
                 />
-              </div>
-            ))}
+              )
+            )}
           </div>
 
           {showButton && (
