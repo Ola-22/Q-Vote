@@ -12,7 +12,14 @@
 
 .count-timer span {
   margin-right: 4px;
-  font-size: 22px;
+  font-size: 14px;
   color: #11ACA1;
+}
+
+.count-timer img {
+  -webkit-margin-start: 8px;
+          margin-inline-start: 8px;
+  width: 13px;
+  height: 15px;
 }
 /*# sourceMappingURL=style.css.map */
