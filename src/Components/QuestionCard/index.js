@@ -15,13 +15,14 @@ export default function QuestionCard({
   verifyUser,
   date,
   countTimer,
+  src,
 }) {
   return (
     <div>
       <div className="question-container" style={{ height: "121px" }}>
         {endCard && <EndCard end_at={end_at} />}
 
-        {countTimer && <CountdownTimer date={date} />}
+        {countTimer && <CountdownTimer src={src} date={date} />}
 
         <h4>{question}</h4>
         <div className="company-container">
