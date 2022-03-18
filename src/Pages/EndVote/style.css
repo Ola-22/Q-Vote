@@ -54,9 +54,8 @@
       -ms-flex-pack: justify;
           justify-content: space-between;
   height: 50px;
-  position: fixed;
-  bottom: 27px;
-  width: 90%;
+  margin-top: 58px;
+  margin-bottom: 27px;
 }
 
 .end-vote .share-container button:first-of-type {
@@ -108,5 +107,9 @@
   z-index: 22;
   width: 100%;
   height: 100%;
+}
+
+.end-vote .count-timer img {
+  display: none;
 }
 /*# sourceMappingURL=style.css.map */
