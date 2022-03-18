@@ -7,7 +7,12 @@
     justify-content: center;
     & span{
         margin-right: 4px;
-        font-size: 22px;
+        font-size: 14px;
         color: $greenColor;
+    }
+    & img{
+        margin-inline-start: 8px;
+        width: 13px;
+        height: 15px;
     }
 }

@@ -82,9 +82,6 @@ export default function EndVote({
           />
           <h5 className="title-main">المرشحين</h5>
 
-          {console.log(new Date(results?.end_at))}
-          {console.log(new Date())}
-
           <div className="choices">
             {results.candidates.map((can) =>
               new Date(results?.end_at) > new Date() ? (
@@ -112,7 +109,17 @@ export default function EndVote({
                   name={can.name}
                   progress={
                     <ProgressBar
-                      colour="#80B3F5"
+                      colour={
+                        can.vote_precentage > 50
+                          ? "#FC2574"
+                          : can.vote_precentage <= 50
+                          ? "#59FFC6"
+                          : can.vote_precentage < 8
+                          ? "#FF8656"
+                          : can.vote_precentage < 10
+                          ? "#A646DB"
+                          : "#000"
+                      }
                       percentage={can.vote_precentage}
                     />
                   }

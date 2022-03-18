@@ -35,9 +35,8 @@
         @extend .flexBox;
         justify-content: space-between;
         height: 50px;
-        position: fixed;
-        bottom: 27px;
-        width: 90%;
+        margin-top: 58px;
+        margin-bottom: 27px;
     
        
         & button:first-of-type{
@@ -50,6 +49,7 @@
             border-radius: 10px;
             font-family: DinText, serif;
             cursor: pointer;
+          
             & h4{
                 color: $whiteColor;
                 font-size: 18px;
@@ -89,5 +89,9 @@
         z-index: 22;
         width: 100%;
         height: 100%;
+      }
+
+      & .count-timer img{
+          display: none;
       }
 }

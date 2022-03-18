@@ -23,6 +23,7 @@ export default function MostShared({ questions }) {
             numberVote={qu.total_votes}
             voteContent="صوت"
             date={qu.end_at}
+            src="/images/timer.png"
           />
         </Link>
       ))}

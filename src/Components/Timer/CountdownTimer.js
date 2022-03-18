@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./style.css";
 
-export default function CountdownTimer({ date }) {
+export default function CountdownTimer({ date, src }) {
   const [timerDays, setTimerDays] = useState();
   const [timerHours, setTimerHours] = useState();
   const [timerMinutes, setTimerMinutes] = useState();
@@ -45,6 +45,7 @@ export default function CountdownTimer({ date }) {
       <span>{timerHours}</span>
       <span>:</span>
       <span>{timerMinutes}</span>
+      <img src={src} alt="" />
     </div>
   );
 }
