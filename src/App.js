@@ -21,7 +21,6 @@ function App() {
   const [resendCode, setResendCode] = useState();
   const [codeInput, setCodeInput] = useState("");
   const [name, setName] = useState("");
-  const [options, setOptions] = useState();
 
   const [selected, setSelected] = useState(new Set());
 
@@ -87,9 +86,6 @@ function App() {
       .post("/votes", { page_number: 1, page_size: 10 })
       .then((res) => {
         setQuestions(res.data.items.data);
-        console.log(res.data.items.data.map((qu) => qu.candidates));
-        setOptions(res.data.items.data.map((qu) => qu.candidates));
-        console.log(options);
       })
       .catch((err) => {
         console.log(err);
