@@ -40,7 +40,7 @@ export default function Modal({
       setError("");
     }
 
-    if (Input.length === 8 && message?.status === true) {
+    if (Input.length === 8) {
       setTimeout(() => {
         setShowModal(false);
         navigate("/confirm-code");
@@ -119,7 +119,7 @@ export default function Modal({
                   </button>
                 )}
 
-                {message?.status === false && (
+                {/* {message?.status === false && (
                   <>
                     <h6 className="message-content">{message?.message}</h6>
                   </>
@@ -128,7 +128,7 @@ export default function Modal({
                   <>
                     <h6 className="message-content">{message?.message}</h6>
                   </>
-                )}
+                )} */}
               </form>
             </div>
 
