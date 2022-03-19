@@ -10,8 +10,10 @@
     justify-content: center;
     top: 0;
     right: 0;
+    z-index: 100;
     
     .modal-wrapper{
+        border: 3px solid #11ACA1;
         width: 90%;
         height: 300px;
         box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
@@ -52,15 +54,23 @@
             & label{
             align-self: flex-start;
             }
+            & input[type=text]{
+                height: 2.3em;
+            }
 
-            & input[type= text]{
+            & input[type= text], textarea{
                 border: 1px solid #EBEBEB;
                 border-radius: 5px;
-                height: 2.3em;
                 font-size: 15px;
                 padding-inline-start: 1em;
                 outline: none;
+                caret-color: #11ACA1;
+                resize: none;
             }
+            textarea{
+                padding-top: 8px;
+            }
+
        .input-phone{
            direction: ltr;
            display: flex;
@@ -92,7 +102,7 @@
                font-weight: 400;
                padding-inline-start: 1em;
                height: 100%;
-               padding-top: 5px;
+               padding-top: 4px;
            }
        }
        & button{
