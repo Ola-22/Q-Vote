@@ -176,10 +176,15 @@ export default function EndVote({
               <div className="modal-wrapper">
                 <div className="modal-content">
                   <form>
-                    <label>الاسم</label>
-                    <input type="text" />
-                    <label>أضف تعليقك</label>
-                    <textarea rows="4" cols="50" />
+                    <div className="name-container">
+                      <label>الاسم</label>
+                      <input type="text" />
+                    </div>
+                    <div className="name-container">
+                      <label>أضف تعليقك</label>
+                      <textarea rows="4" cols="50" />
+                    </div>
+
                     <button style={{ backgroundColor: "#75153B" }}>
                       ارسال
                     </button>
