@@ -41,10 +41,10 @@ const Text = ({ percentage }) => {
   );
 };
 
-const ProgressBar = ({ percentage, colour }) => {
+const ProgressBar = ({ percentage, colour, total }) => {
   const pct = cleanPercentage(percentage);
   return (
-    <svg width={200} height={200} style={{ width: "100%", height: "100%" }}>
+    <svg className="svg" width={163} height={183.5}>
       <g transform={`rotate(-90 ${"82 100"})`}>
         <Circle colour="lightgrey" />
         <Circle colour={colour} pct={pct} />
