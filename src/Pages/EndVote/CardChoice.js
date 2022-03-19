@@ -6,15 +6,20 @@ export default function CardChoice({
   progress,
   voteNumber,
   RateVote,
+  className,
+  total,
 }) {
   return (
-    <div className="choices-card result">
-      <img className="exclamation" src="/images/exclamation.png" alt="" />
-      <img src={src} alt="" />
-      <div className="name-content">
-        <h4>{name}</h4>
+    <div className="main-card">
+      <div className={className}>
+        <img className="exclamation" src="/images/exclamation.png" alt="" />
+        <img src={src} alt="" />
+        <div className="name-content">
+          <h4>{name}</h4>
+        </div>
+        {progress}
+        <span className="total">{total}صوت</span>
       </div>
-      {progress}
     </div>
   );
 }
