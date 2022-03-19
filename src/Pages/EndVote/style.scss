@@ -73,25 +73,35 @@
         top: 0;
     }
 
-    .result:after {
-        content: "";
-        width: 100%;
-        height: 100%;
-        background-color: #000;
-        opacity: .70;
-        position: absolute;
-        border-radius: 7px;
-      }
-
-      & svg{
-        position: absolute;
-        top: 0;
-        z-index: 22;
-        width: 100%;
-        height: 100%;
-      }
-
       & .count-timer img{
           display: none;
       }
+}
+
+.main-card {
+    position: relative;
+    & .result{
+        &:after{
+            content: "";
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            opacity: .70;
+            position: absolute;
+            border-radius: 7px; 
+        }
+        .svg{
+            position: absolute;
+            top: 0;
+            z-index: 22;
+            width: 100%;
+            height: 100%;
+            }
+    }
+
+    .total{
+        position: absolute;
+        color: white;
+        z-index: 5;
+    }
 }

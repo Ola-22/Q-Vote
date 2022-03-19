@@ -105,6 +105,7 @@ export default function EndVote({
                 </div>
               ) : (
                 <CardChoice
+                  className="choices-card result"
                   src={can.photo}
                   name={can.name}
                   progress={
@@ -121,8 +122,10 @@ export default function EndVote({
                           : "#000"
                       }
                       percentage={can.vote_precentage}
+                      total={can.total_votes}
                     />
                   }
+                  total={can.total_votes}
                 />
               )
             )}
@@ -175,8 +178,11 @@ export default function EndVote({
                   <form>
                     <label>الاسم</label>
                     <input type="text" />
-                    <label>التعليق</label>
-                    <input type="text" />
+                    <label>أضف تعليقك</label>
+                    <textarea rows="4" cols="50" />
+                    <button style={{ backgroundColor: "#75153B" }}>
+                      ارسال
+                    </button>
                   </form>
 
                   <MdClose
