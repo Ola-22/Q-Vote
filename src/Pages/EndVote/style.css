@@ -91,7 +91,15 @@
   top: 0;
 }
 
-.end-vote .result:after {
+.end-vote .count-timer img {
+  display: none;
+}
+
+.main-card {
+  position: relative;
+}
+
+.main-card .result:after {
   content: "";
   width: 100%;
   height: 100%;
@@ -101,7 +109,7 @@
   border-radius: 7px;
 }
 
-.end-vote svg {
+.main-card .result .svg {
   position: absolute;
   top: 0;
   z-index: 22;
@@ -109,7 +117,9 @@
   height: 100%;
 }
 
-.end-vote .count-timer img {
-  display: none;
+.main-card .total {
+  position: absolute;
+  color: white;
+  z-index: 5;
 }
 /*# sourceMappingURL=style.css.map */
