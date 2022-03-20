@@ -38,4 +38,61 @@
   top: 9px;
   left: 9px;
 }
+
+.choices-card .modal-wrapper {
+  height: 265px !important;
+}
+
+.choices-card .modal-wrapper .box {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+}
+
+.choices-card .modal-wrapper .box:after {
+  content: "";
+  width: 100%;
+  height: 2px;
+  background-color: #707070;
+  opacity: .10;
+  position: absolute;
+  top: 30px;
+}
+
+.choices-card .card-desc {
+  -webkit-box-align: start !important;
+      -ms-flex-align: start !important;
+          align-items: flex-start !important;
+  width: 90% !important;
+  position: relative;
+}
+
+.choices-card .card-desc h1 {
+  font-size: 16px;
+}
+
+.choices-card .card-desc .desc-content {
+  height: 164px;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.choices-card .card-desc .close-btn {
+  top: 0 !important;
+  background: #11ACA1;
+  border-radius: 50%;
+  width: 22px !important;
+  height: 22px !important;
+  color: white;
+  position: inherit !important;
+}
 /*# sourceMappingURL=style.css.map */

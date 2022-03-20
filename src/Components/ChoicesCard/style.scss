@@ -31,4 +31,48 @@
         left: 9px; 
    }
   
+   .modal-wrapper{
+        height: 265px !important;
+        & .box{   
+          align-items: center;
+          display: flex;
+          justify-content: space-between;
+          width: 100%;
+
+          &:after{
+               content: "";
+               width: 100%;
+               height: 2px;
+               background-color: #707070;
+               opacity: .10;
+               position: absolute;
+               top: 30px;
+             }
+        }
+   }
+   .card-desc{
+     align-items: flex-start !important;
+     width: 90% !important;
+     position: relative;
+     & h1{
+          font-size: 16px;
+     }
+     & .desc-content{
+          height: 164px;
+          width: 100%;
+          white-space: nowrap; 
+          overflow: hidden;
+          text-overflow: ellipsis; 
+     }
+     .close-btn{
+          top: 0 !important;
+          background: $greenColor;
+          border-radius: 50%;
+          width: 22px !important;
+          height: 22px !important;
+          color: white;
+          position: inherit !important;
+        }
+   }
+  
 }
