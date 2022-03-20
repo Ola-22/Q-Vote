@@ -21,6 +21,8 @@ function App() {
   const [resendCode, setResendCode] = useState();
   const [codeInput, setCodeInput] = useState("");
   const [name, setName] = useState("");
+  const [nameComment, setNameComment] = useState("");
+  const [comment, setComment] = useState("");
 
   const [selected, setSelected] = useState(new Set());
 
@@ -76,7 +78,6 @@ function App() {
       .post("/vote", data)
       .then((res) => {
         setMessage(res.data);
-        console.log(res);
       })
       .catch((err) => console.log(err));
   }
@@ -145,6 +146,22 @@ function App() {
       .catch((err) => console.log(err));
   }
 
+  async function sendComment() {
+    const data = {
+      mac_address: macAddress,
+      vote_id: questionId,
+      name: nameComment,
+      comment: comment,
+    };
+
+    await axiosInstance
+      .post("/comment", data)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => console.log(err));
+  }
+
   return (
     <BrowserRouter>
       <div className="App">
@@ -170,6 +187,9 @@ function App() {
                 setShowModal={setShowModal}
                 isLoading={isLoading}
                 handleClick={handleClick}
+                setComment={setComment}
+                setNameComment={setNameComment}
+                sendComment={sendComment}
               />
             }
           />
