@@ -36,7 +36,9 @@ export default function CountdownTimer({ date, src }) {
   };
 
   useEffect(() => {
+    const abortCont = new AbortController();
     startTimer();
+    return () => abortCont.abort();
   });
   return (
     <div className="count-timer">
