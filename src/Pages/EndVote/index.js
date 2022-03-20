@@ -2,7 +2,7 @@ import Header from "../../Components/Header";
 import QuestionCard from "../../Components/QuestionCard";
 import "./style.css";
 import moment from "moment";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axiosInstance from "../../helpers/axios";
 import SkeletonArticle from "../../Components/Skeletons/SkeletonArticle";
@@ -24,8 +24,12 @@ export default function EndVote({
   showButton,
   isLoading,
   handleClick,
+  setComment,
+  setNameComment,
+  sendComment,
 }) {
   const { slug } = useParams();
+  const navigate = useNavigate();
 
   const [results, setResults] = useState();
   const [modalOpen, setModalOpen] = useState(false);
@@ -68,8 +72,12 @@ export default function EndVote({
     <div className="end-vote">
       <Header />
       <div className="timer-vote">
-        <h6>متبقي لانتهاء التصويت</h6>
-        {results && <QuestionCard countTimer date={results?.end_at} />}
+        {new Date(results?.end_at) > new Date() && (
+          <>
+            <h6>متبقي لانتهاء التصويت</h6>
+            {results && <QuestionCard countTimer date={results?.end_at} />}
+          </>
+        )}
       </div>
       {results && (
         <div>
@@ -101,7 +109,9 @@ export default function EndVote({
                     className={
                       selected.has(can) ? "choices-card active" : "choices-card"
                     }
+                    description={can.description}
                   />
+                  {console.log(can.description)}
                 </div>
               ) : (
                 <CardChoice
@@ -178,14 +188,28 @@ export default function EndVote({
                   <form>
                     <div className="name-container">
                       <label>الاسم</label>
-                      <input type="text" />
+                      <input
+                        onChange={(e) => setNameComment(e.target.value)}
+                        type="text"
+                      />
                     </div>
                     <div className="name-container">
                       <label>أضف تعليقك</label>
-                      <textarea rows="4" cols="50" />
+                      <textarea
+                        onChange={(e) => setComment(e.target.value)}
+                        rows="4"
+                        cols="50"
+                      />
                     </div>
 
-                    <button style={{ backgroundColor: "#75153B" }}>
+                    <button
+                      onClick={(e) => {
+                        e.preventDefault();
+                        sendComment();
+                        setTimeout(() => navigate(-1));
+                      }}
+                      style={{ backgroundColor: "#75153B" }}
+                    >
                       ارسال
                     </button>
                   </form>
