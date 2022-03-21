@@ -8,6 +8,9 @@ export default function ChoicesCard({
   onClick,
   className,
   description,
+  progressBar,
+  progress,
+  total,
 }) {
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -29,6 +32,16 @@ export default function ChoicesCard({
       <div className="name-content">
         <h4>{name}</h4>
       </div>
+
+      {/* <div className="main-card"> */}
+      {progressBar && (
+        <>
+          {progress}
+          <span className="total">{total}صوت</span>
+        </>
+      )}
+      {/* </div> */}
+      {/* </div> */}
 
       {modalOpen && (
         <div className="background">
