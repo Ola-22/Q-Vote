@@ -60,6 +60,10 @@
   .company-container{
     justify-content: flex-start;
     margin-top: 22px;
+    & img{
+      width: 26px;
+      height:26px;
+    }
   }
   .end-vote{
     margin-top: 12px;

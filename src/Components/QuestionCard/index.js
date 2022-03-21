@@ -16,6 +16,7 @@ export default function QuestionCard({
   date,
   countTimer,
   src,
+  companyId,
 }) {
   return (
     <div>
@@ -25,10 +26,12 @@ export default function QuestionCard({
         {countTimer && <CountdownTimer src={src} date={date} />}
 
         <h4>{question}</h4>
-        <div className="company-container">
-          <img src={companyImg} alt="" />
-          <h5>{company}</h5>
-        </div>
+        {companyId && (
+          <div className="company-container">
+            <img src={companyImg} alt="" />
+            <h5>{company}</h5>
+          </div>
+        )}
 
         <div
           className="vote-number"

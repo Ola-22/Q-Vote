@@ -7,12 +7,10 @@ export default function CountdownTimer({ date, src }) {
   const [timerMinutes, setTimerMinutes] = useState();
   // const [timerSeconds, setTimerSeconds] = useState();
 
-  let interval;
-
-  const startTimer = () => {
+  useEffect(() => {
     const countDownDate = new Date(date).getTime();
 
-    interval = setInterval(() => {
+    const interval = setInterval(() => {
       const now = new Date().getTime();
 
       const distance = countDownDate - now;
@@ -33,20 +31,16 @@ export default function CountdownTimer({ date, src }) {
         // setTimerSeconds(seconds);
       }
     });
-  };
+    return () => clearInterval(interval);
+  }, []);
 
-  useEffect(() => {
-    const abortCont = new AbortController();
-    startTimer();
-    return () => abortCont.abort();
-  });
   return (
     <div className="count-timer">
-      <span>{timerDays}</span>
+      <span>{timerDays < 10 ? "0" + timerDays : timerDays}</span>
       <span>:</span>
-      <span>{timerHours}</span>
+      <span>{timerHours < 10 ? "0" + timerHours : timerHours}</span>
       <span>:</span>
-      <span>{timerMinutes}</span>
+      <span>{timerMinutes < 10 ? "0" + timerMinutes : timerMinutes}</span>
       <img src={src} alt="" />
     </div>
   );

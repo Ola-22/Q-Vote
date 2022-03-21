@@ -9,7 +9,6 @@ import SkeletonArticle from "../../Components/Skeletons/SkeletonArticle";
 import ChoicesCard from "../../Components/ChoicesCard";
 import { FaSpinner } from "react-icons/fa";
 import { MdClose } from "react-icons/md";
-import CardChoice from "./CardChoice";
 import ProgressBar from "../../Components/Progress";
 
 export default function EndVote({
@@ -27,6 +26,7 @@ export default function EndVote({
   setComment,
   setNameComment,
   sendComment,
+  setQuId,
 }) {
   const { slug } = useParams();
   const navigate = useNavigate();
@@ -81,15 +81,15 @@ export default function EndVote({
       </div>
       {results && (
         <div>
+          {/* {setQuId(results?.id)} */}
           <QuestionCard
             endCard
             question={results.question}
             end_at={moment(results.end_at).format("LLL")}
-            company={results.company}
-            companyImg="/images/company.png"
+            company={results?.company?.company}
+            companyImg={results?.company?.company_image}
           />
           <h5 className="title-main">المرشحين</h5>
-
           <div className="choices">
             {results.candidates.map((can) =>
               new Date(results?.end_at) > new Date() ? (
@@ -111,36 +111,37 @@ export default function EndVote({
                     }
                     description={can.description}
                   />
-                  {console.log(can.description)}
                 </div>
               ) : (
-                <CardChoice
-                  className="choices-card result"
-                  src={can.photo}
-                  name={can.name}
-                  progress={
-                    <ProgressBar
-                      colour={
-                        can.vote_precentage > 50
-                          ? "#FC2574"
-                          : can.vote_precentage <= 50
-                          ? "#59FFC6"
-                          : can.vote_precentage < 8
-                          ? "#FF8656"
-                          : can.vote_precentage < 10
-                          ? "#A646DB"
-                          : "#000"
-                      }
-                      percentage={can.vote_precentage}
-                      total={can.total_votes}
-                    />
-                  }
-                  total={can.total_votes}
-                />
+                <div className="main-card">
+                  <ChoicesCard
+                    className="choices-card result"
+                    src={can.photo}
+                    name={can.name}
+                    progressBar
+                    progress={
+                      <ProgressBar
+                        colour={
+                          can.vote_precentage <= 20
+                            ? "#FC2574"
+                            : can.vote_precentage <= 40
+                            ? "#FF8656"
+                            : can.vote_precentage < 60
+                            ? "#A646DB"
+                            : can.vote_precentage >= 60
+                            ? "#59FFC6"
+                            : "#000"
+                        }
+                        percentage={can.vote_precentage}
+                        total={can.total_votes}
+                      />
+                    }
+                    total={can.total_votes}
+                  />
+                </div>
               )
             )}
           </div>
-
           {showButton && (
             <button
               className="btn-vote"
@@ -154,7 +155,6 @@ export default function EndVote({
               تأكيد
             </button>
           )}
-
           {isLoading && (
             <button
               disabled
@@ -170,9 +170,13 @@ export default function EndVote({
               تأكيد
             </button>
           )}
-
           <div className="share-container">
-            <button onClick={handleClickBtn}>
+            <button
+              onClick={() => {
+                handleClickBtn();
+                setQuId(results?.id);
+              }}
+            >
               <img src="/images/comment.png" alt="" />
               <h4>التعليق على التصويت</h4>
             </button>
@@ -180,7 +184,6 @@ export default function EndVote({
               <img src="/images/ShareImg.png" alt="" />
             </button>
           </div>
-
           {modalOpen && (
             <div className="background">
               <div className="modal-wrapper">
@@ -206,7 +209,7 @@ export default function EndVote({
                       onClick={(e) => {
                         e.preventDefault();
                         sendComment();
-                        setTimeout(() => navigate(-1));
+                        setTimeout(() => navigate("/comments"));
                       }}
                       style={{ backgroundColor: "#75153B" }}
                     >

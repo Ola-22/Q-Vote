@@ -99,6 +99,11 @@
   margin-top: 22px;
 }
 
+.question-container .company-container img {
+  width: 26px;
+  height: 26px;
+}
+
 .question-container .end-vote {
   margin-top: 12px;
 }
