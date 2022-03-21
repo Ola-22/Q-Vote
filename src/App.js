@@ -6,6 +6,7 @@ import VoteMain from "./Pages/VoteMain";
 import EndVote from "./Pages/EndVote";
 import Modal from "./Components/Modal";
 import ConfirmCode from "./Pages/ConfirmCode";
+import Comments from "./Pages/Comments";
 
 function App() {
   const [questions, setQuestions] = useState();
@@ -23,6 +24,7 @@ function App() {
   const [name, setName] = useState("");
   const [nameComment, setNameComment] = useState("");
   const [comment, setComment] = useState("");
+  const [quId, setQuId] = useState();
 
   const [selected, setSelected] = useState(new Set());
 
@@ -39,8 +41,6 @@ function App() {
       return selected;
     });
   };
-
-  console.log(selected);
 
   const choiceArr = choice.map((ch) => ch.id);
 
@@ -149,15 +149,14 @@ function App() {
   async function sendComment() {
     const data = {
       mac_address: macAddress,
-      vote_id: questionId,
+      vote_id: quId,
       name: nameComment,
       comment: comment,
     };
-
     await axiosInstance
       .post("/comment", data)
       .then((res) => {
-        console.log(res);
+        // console.log(res);
       })
       .catch((err) => console.log(err));
   }
@@ -190,6 +189,7 @@ function App() {
                 setComment={setComment}
                 setNameComment={setNameComment}
                 sendComment={sendComment}
+                setQuId={setQuId}
               />
             }
           />
@@ -208,6 +208,7 @@ function App() {
               />
             }
           />
+          <Route path="/comments" element={<Comments quId={quId} />} />
         </Routes>
         {/* <CountdownTimer date={date} setDate={setDate} /> */}
         <Modal
