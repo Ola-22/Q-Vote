@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import "./style.css";
 import { MdClose } from "react-icons/md";
 import { FaSpinner } from "react-icons/fa";
@@ -13,6 +13,8 @@ export default function Modal({
   setInput,
   Input,
   setName,
+  setSelected,
+  setChoice,
 }) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -40,13 +42,21 @@ export default function Modal({
       setError("");
     }
 
-    if (Input.length === 8) {
+    if (message?.status === true) {
       setTimeout(() => {
         setShowModal(false);
         navigate("/confirm-code");
       }, 1000);
     }
   }
+
+  useEffect(() => {
+    if (message?.status === false) {
+      setTimeout(() => {
+        setChoice([]);
+      }, 5000);
+    }
+  }, [message?.status]);
 
   return (
     <>
@@ -119,7 +129,7 @@ export default function Modal({
                   </button>
                 )}
 
-                {/* {message?.status === false && (
+                {message?.status === false && (
                   <>
                     <h6 className="message-content">{message?.message}</h6>
                   </>
@@ -128,7 +138,7 @@ export default function Modal({
                   <>
                     <h6 className="message-content">{message?.message}</h6>
                   </>
-                )} */}
+                )}
               </form>
             </div>
 
