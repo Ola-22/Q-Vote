@@ -1,27 +1,35 @@
 import { useEffect, useState } from "react";
 import Header from "../../Components/Header";
 import axiosInstance from "../../helpers/axios";
+import "./style.css";
 
 export default function Comments({ quId, questions }) {
-  // console.log("rds", quId);
   const [comment, setComment] = useState();
 
   useEffect(() => {
     axiosInstance
       .post("/comments", { vote_id: quId })
       .then((res) => {
-        // console.log(res.data.items);
         setComment(res.data.items);
-        // console.log(comment?.map((c) => c.id));
+        console.log(res);
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
+
   return (
-    <div>
+    <div className="comments-main">
       <Header />
-      {comment?.map((c) => c.name)}
+      {comment?.map((c) => (
+        <div className="box-comments" key={c.id}>
+          <img src="/images/user.png" alt="" />
+          <div>
+            <h3>{c.name}</h3>
+            <p>{c.comment}</p>
+          </div>
+        </div>
+      ))}
     </div>
   );
 }

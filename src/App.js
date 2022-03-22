@@ -25,6 +25,8 @@ function App() {
   const [nameComment, setNameComment] = useState("");
   const [comment, setComment] = useState("");
   const [quId, setQuId] = useState();
+  const [options, setOptions] = useState();
+  const [ErrorSelect, setErrorSelect] = useState(false);
 
   const [selected, setSelected] = useState(new Set());
 
@@ -43,6 +45,22 @@ function App() {
   };
 
   const choiceArr = choice.map((ch) => ch.id);
+
+  console.log(choice);
+
+  // if (options === 3 && selected.size > 2) {
+  //   // setErrorSelect(!ErrorSelect);
+  //   console.log("first");
+  //   alert(" لا يمكنك التصويت أكثر من مرتين");
+  //   // document.write("jj");
+  // }
+
+  // if (options === 2 && selected.size > 1) {
+  //   console.log("first");
+  //   alert(" لا يمكنك التصويت أكثر من مرة واحدة");
+  // }
+
+  // console.log(selected);
 
   const InputPhone = "974" + Input;
 
@@ -68,14 +86,14 @@ function App() {
   async function postData() {
     const data = {
       mac_address: macAddress,
-      candidate_id: choiceArr,
+      candidate_id: choice,
       vote_id: questionId,
       phone: InputPhone,
       name: name,
     };
 
     await axiosInstance
-      .post("/vote", data)
+      .post("/vote/add", data)
       .then((res) => {
         setMessage(res.data);
       })
@@ -91,7 +109,7 @@ function App() {
       .catch((err) => {
         console.log(err);
       });
-  }, [choice]);
+  }, []);
 
   useEffect(() => {
     const navigator_info = window.navigator;
@@ -108,7 +126,7 @@ function App() {
   async function confirmCode() {
     const data = {
       mac_address: macAddress,
-      candidate_id: choiceArr,
+      candidate_id: choice,
       vote_id: questionId,
       phone: InputPhone,
       code: codeInput,
@@ -174,6 +192,7 @@ function App() {
                 selected={selected}
                 setShowButton={setShowButton}
                 setQuestionId={setQuestionId}
+                questionId={questionId}
                 setMessage={setMessage}
                 choice={choice}
                 setChoice={setChoice}
@@ -190,6 +209,8 @@ function App() {
                 setNameComment={setNameComment}
                 sendComment={sendComment}
                 setQuId={setQuId}
+                setOptions={setOptions}
+                ErrorSelect={ErrorSelect}
               />
             }
           />
@@ -210,8 +231,8 @@ function App() {
           />
           <Route path="/comments" element={<Comments quId={quId} />} />
         </Routes>
-        {/* <CountdownTimer date={date} setDate={setDate} /> */}
         <Modal
+          setChoice={setChoice}
           postData={postData}
           showModal={showModal}
           setShowModal={setShowModal}
@@ -222,6 +243,7 @@ function App() {
           handleClick={handleClick}
           setName={setName}
           name={name}
+          setSelected={setSelected}
         />
       </div>
     </BrowserRouter>

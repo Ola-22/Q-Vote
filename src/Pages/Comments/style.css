@@ -1,0 +1,48 @@
+.comments-main {
+  width: 90%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.comments-main .header {
+  margin-bottom: 30px;
+}
+
+.comments-main .box-comments {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 10px;
+  padding-right: 20px;
+  height: 95px;
+  -webkit-box-shadow: -3px 7px 6.5px rgba(0, 0, 0, 0.05);
+          box-shadow: -3px 7px 6.5px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  background-color: #ffffff;
+}
+
+.comments-main .box-comments > img {
+  width: 35px;
+  height: 35px;
+}
+
+.comments-main .box-comments > div {
+  margin-right: 1em;
+}
+
+.comments-main .box-comments > div h3 {
+  font-size: 16px;
+}
+
+.comments-main .box-comments > div p {
+  font-size: 14px;
+}
+/*# sourceMappingURL=style.css.map */

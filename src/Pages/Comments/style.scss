@@ -1,0 +1,36 @@
+@import "../../styles/variables";
+
+.comments-main{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    & .header{
+        margin-bottom: 30px;
+    }
+
+    & .box-comments{
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+        padding-right: 20px;
+        height: 95px;
+        box-shadow: -3px 7px 6.5px rgba(0,0,0,0.05);
+        border-radius: 10px;
+        background-color: $whiteColor;
+        & > img{
+            width: 35px;
+            height: 35px;
+        }
+        & > div{
+            margin-right: 1em;
+
+            & h3{
+                font-size: 16px;
+            }
+            & p{
+                font-size: 14px;
+            }
+        }
+    }
+
+}

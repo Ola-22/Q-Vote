@@ -27,17 +27,29 @@ export default function EndVote({
   setNameComment,
   sendComment,
   setQuId,
+  questionId,
+  setOptions,
+  ErrorSelect,
+  setChoice,
 }) {
   const { slug } = useParams();
   const navigate = useNavigate();
 
   const [results, setResults] = useState();
   const [modalOpen, setModalOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   function handleClickBtn() {
     setTimeout(() => {
       setModalOpen(true);
     }, 100);
+  }
+
+  function handleClickLoading() {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 1500);
   }
 
   const handleOnClick = () => {
@@ -68,6 +80,14 @@ export default function EndVote({
       });
   }, [slug]);
 
+  console.log("t", choice);
+  // function sendDataComment(e) {
+  //   if (comment.length  === 0) {
+  //     // setError("*حقل الهاتف مطلوب");
+  //   }
+
+  // }
+
   return (
     <div className="end-vote">
       <Header />
@@ -81,7 +101,6 @@ export default function EndVote({
       </div>
       {results && (
         <div>
-          {/* {setQuId(results?.id)} */}
           <QuestionCard
             endCard
             question={results.question}
@@ -102,9 +121,11 @@ export default function EndVote({
                     onClick={() => {
                       selectItems(can);
                       setQuestionId(results.id);
+                      setOptions(results?.candidates.length);
                       setMessage(false);
-                      !selected.has(can) && choice.push(can);
+                      !selected.has(can) && setChoice([...choice, can.id]);
                       selected.has(can) && choice.pop();
+                      // setChoice((choice) => [...choice, can.id]);
                     }}
                     className={
                       selected.has(can) ? "choices-card active" : "choices-card"
@@ -184,6 +205,15 @@ export default function EndVote({
               <img src="/images/ShareImg.png" alt="" />
             </button>
           </div>
+          {/* {ErrorSelect && (
+            <div className="background">
+              <div className="modal-wrapper">
+                <div className="modal-content">
+                  لا يمكنك التصويت أكثر من مرتين
+                </div>
+              </div>
+            </div>
+          )} */}
           {modalOpen && (
             <div className="background">
               <div className="modal-wrapper">
@@ -205,16 +235,30 @@ export default function EndVote({
                       />
                     </div>
 
-                    <button
-                      onClick={(e) => {
-                        e.preventDefault();
-                        sendComment();
-                        setTimeout(() => navigate("/comments"));
-                      }}
-                      style={{ backgroundColor: "#75153B" }}
-                    >
-                      ارسال
-                    </button>
+                    {!loading && (
+                      <button
+                        onClick={(e) => {
+                          e.preventDefault();
+                          handleClickLoading();
+                          sendComment();
+                          setTimeout(() => navigate("/comments"), 1500);
+                        }}
+                      >
+                        ارسال
+                      </button>
+                    )}
+
+                    {loading && (
+                      <button
+                        disabled
+                        onClick={() => {
+                          handleClick();
+                        }}
+                      >
+                        <FaSpinner icon="spinner" />
+                        ارسال
+                      </button>
+                    )}
                   </form>
 
                   <MdClose
