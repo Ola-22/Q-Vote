@@ -31,3 +31,20 @@ a{
 .active{
   border: 2px solid #2A4E82;
 }
+
+li{
+  list-style: none;
+}
+
+.btn-vote{
+  width: 100%;
+  height: 50px;
+  background-color: #75153B;
+  color: white;
+  box-shadow: -3px 7px 6.5px rgba(46,85,141,0.30);
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  cursor: pointer;
+  margin-top: 4em;
+}
