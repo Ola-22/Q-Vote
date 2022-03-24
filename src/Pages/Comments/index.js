@@ -11,16 +11,16 @@ export default function Comments({ quId, questions }) {
       .post("/comments", { vote_id: quId })
       .then((res) => {
         setComment(res.data.items);
-        console.log(res);
       })
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [quId]);
 
   return (
     <div className="comments-main">
       <Header />
+      <h3>التعليقات:</h3>
       {comment?.map((c) => (
         <div className="box-comments" key={c.id}>
           <img src="/images/user.png" alt="" />
