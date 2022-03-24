@@ -13,7 +13,6 @@ export default function Modal({
   setInput,
   Input,
   setName,
-  setSelected,
   setChoice,
 }) {
   const [loading, setLoading] = useState(false);
@@ -41,21 +40,21 @@ export default function Modal({
     } else {
       setError("");
     }
+  }
 
+  useEffect(() => {
     if (message?.status === true) {
       setTimeout(() => {
         setShowModal(false);
         navigate("/confirm-code");
       }, 1000);
     }
-  }
 
-  useEffect(() => {
-    if (message?.status === false) {
-      setTimeout(() => {
-        setChoice([]);
-      }, 5000);
-    }
+    // if (message?.status === false) {
+    //   setTimeout(() => {
+    //     setChoice([]);
+    //   }, 5000);
+    // }
   }, [message?.status]);
 
   return (

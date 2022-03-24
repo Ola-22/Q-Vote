@@ -44,24 +44,9 @@ function App() {
     });
   };
 
-  const choiceArr = choice.map((ch) => ch.id);
-
-  console.log(choice);
-
-  // if (options === 3 && selected.size > 2) {
-  //   // setErrorSelect(!ErrorSelect);
-  //   console.log("first");
-  //   alert(" لا يمكنك التصويت أكثر من مرتين");
-  //   // document.write("jj");
-  // }
-
-  // if (options === 2 && selected.size > 1) {
-  //   console.log("first");
-  //   alert(" لا يمكنك التصويت أكثر من مرة واحدة");
-  // }
-
-  // console.log(selected);
-
+  if (options === choice.length) {
+    alert(`لا يمكنك التصويت أكثر من ${choice.length - 1} مرات`);
+  }
   const InputPhone = "974" + Input;
 
   const openModal = () => {
@@ -91,7 +76,6 @@ function App() {
       phone: InputPhone,
       name: name,
     };
-
     await axiosInstance
       .post("/vote/add", data)
       .then((res) => {
@@ -99,6 +83,12 @@ function App() {
       })
       .catch((err) => console.log(err));
   }
+
+  useEffect(() => {
+    postData();
+
+    return () => setSelected(new Set());
+  }, []);
 
   useEffect(() => {
     axiosInstance
@@ -131,9 +121,7 @@ function App() {
       phone: InputPhone,
       code: codeInput,
     };
-
     setLoading(true);
-
     await axiosInstance
       .post("/confirm-code", data)
       .then((res) => {
@@ -151,12 +139,10 @@ function App() {
       phone: InputPhone,
     };
     setLoading(true);
-
     await axiosInstance
       .post("/send-code", data)
       .then((res) => {
         setResendCode(res.data);
-
         setTimeout(() => {
           setLoading(false);
         }, 1500);

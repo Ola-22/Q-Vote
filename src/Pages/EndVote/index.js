@@ -80,14 +80,6 @@ export default function EndVote({
       });
   }, [slug]);
 
-  console.log("t", choice);
-  // function sendDataComment(e) {
-  //   if (comment.length  === 0) {
-  //     // setError("*حقل الهاتف مطلوب");
-  //   }
-
-  // }
-
   return (
     <div className="end-vote">
       <Header />
@@ -119,16 +111,17 @@ export default function EndVote({
                     RateVote={can.vote_precentage}
                     name={can.name}
                     onClick={() => {
-                      selectItems(can);
+                      selectItems(can.id);
                       setQuestionId(results.id);
                       setOptions(results?.candidates.length);
                       setMessage(false);
-                      !selected.has(can) && setChoice([...choice, can.id]);
-                      selected.has(can) && choice.pop();
-                      // setChoice((choice) => [...choice, can.id]);
+                      !selected.has(can.id) && setChoice([...choice, can.id]);
+                      selected.has(can.id) && choice.pop();
                     }}
                     className={
-                      selected.has(can) ? "choices-card active" : "choices-card"
+                      selected.has(can.id)
+                        ? "choices-card active"
+                        : "choices-card"
                     }
                     description={can.description}
                   />
@@ -170,6 +163,7 @@ export default function EndVote({
                 show();
                 handleClick();
                 openModal();
+                setShowButton(false);
               }}
               style={{ backgroundColor: "#75153B" }}
             >
