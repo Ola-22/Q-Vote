@@ -11,7 +11,6 @@ import Comments from "./Pages/Comments";
 function App() {
   const [questions, setQuestions] = useState();
   const [showModal, setShowModal] = useState(false);
-  const [choice, setChoice] = useState([]);
   const [questionId, setQuestionId] = useState();
   const [showButton, setShowButton] = useState(false);
   const [message, setMessage] = useState();
@@ -26,27 +25,18 @@ function App() {
   const [comment, setComment] = useState("");
   const [quId, setQuId] = useState();
   const [options, setOptions] = useState();
-  const [ErrorSelect, setErrorSelect] = useState(false);
 
-  const [selected, setSelected] = useState(new Set());
+  const [select, setSelect] = useState([]);
 
-  const selectItems = (select) => {
-    setSelected((selected) => {
-      if (!selected.has(select)) {
-        selected = new Set(selected);
-        selected.add(select);
-      } else {
-        selected = new Set(selected);
-        selected.delete(select);
-      }
-
-      return selected;
-    });
-  };
-
-  if (options === choice.length) {
-    alert(`لا يمكنك التصويت أكثر من ${choice.length - 1} مرات`);
+  function handleRemoveItem(itemId) {
+    const items = select.filter((id) => id !== itemId);
+    setSelect(items);
   }
+
+  if (options === select.length) {
+    alert(`لا يمكنك التصويت أكثر من ${select.length - 1} مرات`);
+  }
+
   const InputPhone = "974" + Input;
 
   const openModal = () => {
@@ -71,7 +61,7 @@ function App() {
   async function postData() {
     const data = {
       mac_address: macAddress,
-      candidate_id: choice,
+      candidate_id: select,
       vote_id: questionId,
       phone: InputPhone,
       name: name,
@@ -87,7 +77,7 @@ function App() {
   useEffect(() => {
     postData();
 
-    return () => setSelected(new Set());
+    return () => setSelect([]);
   }, []);
 
   useEffect(() => {
@@ -116,7 +106,7 @@ function App() {
   async function confirmCode() {
     const data = {
       mac_address: macAddress,
-      candidate_id: choice,
+      candidate_id: select,
       vote_id: questionId,
       phone: InputPhone,
       code: codeInput,
@@ -174,21 +164,14 @@ function App() {
             path="/vote-main/:slug"
             element={
               <EndVote
-                selectItems={selectItems}
-                selected={selected}
+                handleRemoveItem={handleRemoveItem}
+                select={select}
                 setShowButton={setShowButton}
                 setQuestionId={setQuestionId}
-                questionId={questionId}
                 setMessage={setMessage}
-                choice={choice}
-                setChoice={setChoice}
                 showButton={showButton}
                 show={show}
-                postData={postData}
-                message={message}
                 openModal={openModal}
-                showModal={showModal}
-                setShowModal={setShowModal}
                 isLoading={isLoading}
                 handleClick={handleClick}
                 setComment={setComment}
@@ -196,7 +179,7 @@ function App() {
                 sendComment={sendComment}
                 setQuId={setQuId}
                 setOptions={setOptions}
-                ErrorSelect={ErrorSelect}
+                setSelect={setSelect}
               />
             }
           />
@@ -218,7 +201,6 @@ function App() {
           <Route path="/comments" element={<Comments quId={quId} />} />
         </Routes>
         <Modal
-          setChoice={setChoice}
           postData={postData}
           showModal={showModal}
           setShowModal={setShowModal}
@@ -229,7 +211,6 @@ function App() {
           handleClick={handleClick}
           setName={setName}
           name={name}
-          setSelected={setSelected}
         />
       </div>
     </BrowserRouter>
