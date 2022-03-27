@@ -11,7 +11,7 @@ export default function Header() {
         </button>
       </Link>
       <Link to="/" className="logo-container">
-        <img src="/images/LogoQ.png" alt="" />
+        <img src="/images/LogoQ.PNG" alt="" />
       </Link>
     </div>
   );

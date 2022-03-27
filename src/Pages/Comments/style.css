@@ -45,4 +45,8 @@
 .comments-main .box-comments > div p {
   font-size: 14px;
 }
+
+.comments-main .box-comments:last-child {
+  margin-bottom: 1em;
+}
 /*# sourceMappingURL=style.css.map */

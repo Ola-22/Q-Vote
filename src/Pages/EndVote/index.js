@@ -13,12 +13,11 @@ import ProgressBar from "../../Components/Progress";
 
 export default function EndVote({
   openModal,
-  selectItems,
-  selected,
+  handleRemoveItem,
+  select,
   setShowButton,
   setQuestionId,
   setMessage,
-  choice,
   show,
   showButton,
   isLoading,
@@ -27,10 +26,9 @@ export default function EndVote({
   setNameComment,
   sendComment,
   setQuId,
-  questionId,
   setOptions,
-  ErrorSelect,
-  setChoice,
+  setSelect,
+  check,
 }) {
   const { slug } = useParams();
   const navigate = useNavigate();
@@ -102,24 +100,26 @@ export default function EndVote({
           />
           <h5 className="title-main">المرشحين</h5>
           <div className="choices">
-            {results.candidates.map((can) =>
+            {results.candidates.map((can, i) =>
               new Date(results?.end_at) > new Date() ? (
-                <div key={can.id} onClick={() => setShowButton(true)}>
+                <div key={i} onClick={() => setShowButton(true)}>
                   <ChoicesCard
+                    key={can.id}
                     src={can.photo}
                     voteNumber={can.total_votes}
                     RateVote={can.vote_precentage}
                     name={can.name}
-                    onClick={() => {
-                      selectItems(can.id);
+                    onClick={(e) => {
                       setQuestionId(results.id);
                       setOptions(results?.candidates.length);
                       setMessage(false);
-                      !selected.has(can.id) && setChoice([...choice, can.id]);
-                      selected.has(can.id) && choice.pop();
+
+                      select.some((el) => el === can.id) === false
+                        ? setSelect([...select, can.id])
+                        : handleRemoveItem(can.id);
                     }}
                     className={
-                      selected.has(can.id)
+                      select.some((el) => el === can.id) === true
                         ? "choices-card active"
                         : "choices-card"
                     }

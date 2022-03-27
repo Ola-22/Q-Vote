@@ -13,7 +13,6 @@ export default function Modal({
   setInput,
   Input,
   setName,
-  setChoice,
 }) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -49,12 +48,6 @@ export default function Modal({
         navigate("/confirm-code");
       }, 1000);
     }
-
-    // if (message?.status === false) {
-    //   setTimeout(() => {
-    //     setChoice([]);
-    //   }, 5000);
-    // }
   }, [message?.status]);
 
   return (
