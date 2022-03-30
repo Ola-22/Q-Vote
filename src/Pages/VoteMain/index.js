@@ -1,18 +1,17 @@
-import { useState } from "react";
-import Tab from "../../Components/Tabs/Tab";
-import TabNav from "../../Components/Tabs/TabNav";
-import MostShared from "../../Components/VotePublic/MostShared";
-import NewShared from "../../Components/VotePublic/NewShared";
 import { Link, useNavigate } from "react-router-dom";
 import "./style.css";
+import Button from "../../Components/Button";
+import Menu from "../../Components/Menu";
 
-export default function VoteMain({ questions }) {
-  const [selected, setSelected] = useState("أحدث الإضافات");
+export default function VoteMain({
+  questions,
+  allCategories,
+  filter,
+  menuItem,
+  setMenuItem,
+  allCategoriesIcon,
+}) {
   const navigate = useNavigate();
-
-  const SelectTab = (tab) => {
-    setSelected(tab);
-  };
 
   return (
     <div className="vote-main">
@@ -25,23 +24,19 @@ export default function VoteMain({ questions }) {
           <img src="/images/LogoQ.PNG" alt="" />
         </Link>
       </div>
-      <TabNav
-        tabs={["أحدث الإضافات", "الأكثر مشاركة"]}
-        selected={selected}
-        SelectTab={SelectTab}
-      >
-        <>
-          <Tab isSelected={selected === "أحدث الإضافات"}>
-            <NewShared questions={questions} />
-          </Tab>
-        </>
 
-        <>
-          <Tab isSelected={selected === "الأكثر مشاركة"}>
-            <MostShared questions={questions} />
-          </Tab>
-        </>
-      </TabNav>
+      <>
+        <Button
+          button={allCategories}
+          filter={filter}
+          questions={questions}
+          setMenuItem={setMenuItem}
+          menuItem={menuItem}
+          allCategoriesIcon={allCategoriesIcon}
+        />
+
+        <Menu menuItem={menuItem} questions={questions} />
+      </>
     </div>
   );
 }
