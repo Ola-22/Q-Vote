@@ -155,11 +155,44 @@ function App() {
       .catch((err) => console.log(err));
   }
 
+  const allCategories = [
+    "all",
+    ...new Set(questions?.map((p) => p.category.title)),
+  ];
+
+  const allCategoriesIcon = [...new Set(questions?.map((p) => p.category))];
+
+  const [menuItem, setMenuItem] = useState(questions);
+
+  const filter = (button) => {
+    if (button === "all") {
+      setMenuItem(questions);
+      return;
+    }
+    const filterdData = questions?.filter(
+      (item) => item.category.title === button
+    );
+
+    setMenuItem(filterdData);
+  };
+
   return (
     <BrowserRouter>
       <div className="App">
         <Routes>
-          <Route path="/" element={<VoteMain questions={questions} />} />
+          <Route
+            path="/"
+            element={
+              <VoteMain
+                menuItem={menuItem}
+                filter={filter}
+                allCategories={allCategories}
+                questions={questions}
+                setMenuItem={setMenuItem}
+                allCategoriesIcon={allCategoriesIcon}
+              />
+            }
+          />
           <Route
             path="/vote-main/:slug"
             element={
