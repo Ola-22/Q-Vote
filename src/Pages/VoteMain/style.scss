@@ -37,4 +37,36 @@
     .count-timer{
       z-index: 100;
     }
+
+
+
+    .buttons{
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin-bottom: 30px;
+      .btn{
+        width: 100px;
+        height: 36px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        background-color: $whiteColor;
+        margin-right: 1em;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    
+        &.active{
+          color: $whiteColor;
+          background-color: $mainColor;
+          box-shadow: -3px 7px 13px #FFE3E3;
+        }
+
+        & img{
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
 }
