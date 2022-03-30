@@ -51,4 +51,46 @@
 .vote-main .count-timer {
   z-index: 100;
 }
+
+.vote-main .buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 30px;
+}
+
+.vote-main .buttons .btn {
+  width: 100px;
+  height: 36px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #ffffff;
+  margin-right: 1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.vote-main .buttons .btn.active {
+  color: #ffffff;
+  background-color: #75153B;
+  -webkit-box-shadow: -3px 7px 13px #FFE3E3;
+          box-shadow: -3px 7px 13px #FFE3E3;
+}
+
+.vote-main .buttons .btn img {
+  width: 20px;
+  height: 20px;
+}
 /*# sourceMappingURL=style.css.map */

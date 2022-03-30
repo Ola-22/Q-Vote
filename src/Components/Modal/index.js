@@ -42,7 +42,7 @@ export default function Modal({
   }
 
   useEffect(() => {
-    if (message?.status === true) {
+    if (message?.status === true && Input.length === 8) {
       setTimeout(() => {
         setShowModal(false);
         navigate("/confirm-code");
